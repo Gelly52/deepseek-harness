@@ -157,7 +157,7 @@ export async function* translate(payloads: AsyncIterable<string>): AsyncGenerato
           yield { type: 'block-start', index: block.index, blockType: 'tool-call' }
         }
         if (call.id !== undefined && call.id.length > 0) block.callId = call.id
-        if (call.function?.name !== undefined && call.function?.name.length > 0) block.name = call.function?.name
+        if (call.function?.name !== undefined && call.function.name.length > 0) block.name = call.function.name
         const fragment = call.function?.arguments ?? ''
         block.text += fragment
         yield {
